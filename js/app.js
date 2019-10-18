@@ -5,16 +5,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const deleteAllButton = document.querySelector("#delete-all")
   deleteAllButton.addEventListener("click", handleDeleteAllClick);
 
-  // document.getElementById("#new-item-form").reset();
+  newItemForm.reset();
 })
 
   const handleNewItemFormSubmit = function(event) {
     event.preventDefault();
 
-  const newBirdSubmission = document.querySelector("#garden-birdwatch-list");
+  const newSubmission = createNewSubmission(event.target);
+  const gardenBirdwatchList = document.querySelector("#garden-birdwatch-list");
+  gardenBirdwatchList.appendChild(newSubmission);
 
-  const newSubmission = document.createElement("ul");
-  newBirdSubmission.appendChild(newSubmission);
+  event.target.reset();
+}
+
+  const createNewSubmission = function (form) {
+    const newSubmission = document.createElement("ul");
+    newSubmission.classList.add("new-submission");
+
+  // const newSubmission = document.createElement("ul");
+  // newBirdSubmission.appendChild(newSubmission);
 
   const newBird = document.createElement("li");
   newBird.textContent = event.target.bird.value;
@@ -29,6 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
   newSubmission.appendChild(newVisitor);
 
 return newSubmission;
+
+
 }
 
 const handleDeleteAllClick = function (event) {
