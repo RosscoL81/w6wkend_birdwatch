@@ -22,19 +22,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const newSubmission = document.createElement("ul");
     newSubmission.classList.add("new-submission");
 
-  // const newSubmission = document.createElement("ul");
-  // newBirdSubmission.appendChild(newSubmission);
 
   const newBird = document.createElement("li");
-  newBird.textContent = event.target.bird.value;
+  newBird.textContent = `Bird Type: ${event.target.bird.value}`;
   newSubmission.appendChild(newBird);
 
   const newQuantity = document.createElement("li");
-  newQuantity.textContent = event.target.quantity.value;
+  newQuantity.textContent = `Quantity: ${event.target.quantity.value}`;
   newSubmission.appendChild(newQuantity);
 
   const newVisitor = document.createElement("li");
-  newVisitor.textContent = event.target.visitor.value;
+  newVisitor.textContent = `Common Visitor? ${event.target.visitor.value}`;
   newSubmission.appendChild(newVisitor);
 
 return newSubmission;
